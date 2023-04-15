@@ -103,10 +103,4 @@ return static function (RectorConfig $rectorConfig): void {
    // not yet $rectorConfig->rule(\RectorLaravel\Rector\Class_\AnonymousMigrationsRector::class);
     $rectorConfig->rule(RectorLaravel\Rector\PropertyFetch\OptionalToNullsafeOperatorRector::class);
     $rectorConfig->rule(RectorLaravel\Rector\Class_\UnifyModelDatesWithCastsRector::class);
-
-    /*
-     * THIS might patch schubert routes quickly
-     *
-     * https://github.com/rectorphp/rector/blob/main/docs/rector_rules_overview.md#annotationtoattributerector
-     */
 };
