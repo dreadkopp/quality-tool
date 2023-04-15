@@ -1,0 +1,20 @@
+parameters:
+	level: 6
+	paths:
+		- app
+		- lib
+		- src
+		- tests
+	parallel:
+		maximumNumberOfProcesses: 4
+	excludePaths:
+		- public
+		- config/insights.php
+	ignoreErrors:
+	- '#PHPDoc tag @mixin contains unknown class Eloquent.#'
+	- '#Attribute class JetBrains\\PhpStorm\\ArrayShape does not exist.#'
+	- '#Attribute class JetBrains\\PhpStorm\\Deprecated does not exist.#'
+	- '#Attribute class JetBrains\\PhpStorm\\Pure does not exist.#'
+	checkMissingIterableValueType: false
+	reportUnmatchedIgnoredErrors: false
+	checkGenericClassInNonGenericObjectType: false

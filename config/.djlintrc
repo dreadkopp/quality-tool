@@ -1,0 +1,7 @@
+{
+    "format_js": false,
+    "format_css": false,
+    "profile" : "nunjucks",
+    "max_line_length": "120",
+    "preserve_leading_space": true
+}
