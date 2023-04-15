@@ -96,7 +96,7 @@ return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->rule(Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictNativeCallRector::class);
     $rectorConfig->rule(Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictTypedCallRector::class);
     $rectorConfig->rule(Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictTypedPropertyRector::class);
-    $rectorConfig->rule(AddGenericReturnTypeToRelationsRector::class);
+    // not yet $rectorConfig->rule(AddGenericReturnTypeToRelationsRector::class);
     //$rectorConfig->rule(FactoryDefinitionRector::class); - broken for now
     $rectorConfig->rule(FactoryFuncCallToStaticCallRector::class);
    // not yet $rectorConfig->rule(\RectorLaravel\Rector\ClassMethod\MigrateToSimplifiedAttributeRector::class);
