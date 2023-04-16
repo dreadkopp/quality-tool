@@ -30,6 +30,14 @@ if [[ $1 == 'rector' ]]; then
     exit
 fi
 
+if [[ $1 == 'rector-imports-only' ]]; then
+    shift 1
+    php -dmemory_limit=-1 ~/.composer/vendor/bin/rector process \
+      --config=/config/rector_import_only.php
+      "$@"
+    exit
+fi
+
 if [[ $1 == 'php-cs-fixer' ]]; then
     shift 1
     php -dmemory_limit=-1 ~/.composer/vendor/bin/php-cs-fixer fix \
@@ -132,6 +140,7 @@ fi
 echo 'Please provide the analyzer to use. Possible options are:'
 echo 'fix-php (will use rector and php-cs-fixer to patch the crappy code you wrote)'
 echo 'rector (php formatter + upgrade helper)'
+echo 'rector-imports-only (will only patch all your FQCN leftovers)'
 echo 'php-cs-fixer (php formatter)'
 echo 'phpinsights (metrics about how bad your project is written)'
 echo 'phpstan (errors when your project is really bad)'

@@ -18,6 +18,11 @@ return static function (RectorConfig $rectorConfig): void {
                              '/analyze/tests',
                          ]);
 
+    $rectorConfig->skip([
+                            './vendor'
+                        ]);
+
+    $rectorConfig->cacheClass(FileCacheStorage::class);
     $rectorConfig->cacheDirectory('/tmp/rectorCache');
 
     $rectorConfig->autoloadPaths([
@@ -54,7 +59,7 @@ return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->rule(Rector\DeadCode\Rector\If_\RemoveAlwaysTrueIfConditionRector::class);
     $rectorConfig->rule(Rector\DeadCode\Rector\Return_\RemoveDeadConditionAboveReturnRector::class);
     $rectorConfig->rule(Rector\DeadCode\Rector\If_\RemoveDeadInstanceOfRector::class);
-    $rectorConfig->rule(Rector\DeadCode\Rector\ClassMethod\RemoveDelegatingParentCallRector::class);
+    // $rectorConfig->rule(Rector\DeadCode\Rector\ClassMethod\RemoveDelegatingParentCallRector::class);
     $rectorConfig->rule(Rector\DeadCode\Rector\ClassMethod\RemoveEmptyClassMethodRector::class);
     // $rectorConfig->rule(Rector\DeadCode\Rector\StmtsAwareInterface\RemoveJustPropertyFetchRector::class);
     $rectorConfig->rule(Rector\DeadCode\Rector\ClassConst\RemoveUnusedPrivateClassConstantRector::class);
@@ -62,12 +67,12 @@ return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->rule(Rector\DeadCode\Rector\ClassMethod\RemoveUselessParamTagRector::class);
     $rectorConfig->rule(Rector\DeadCode\Rector\ClassMethod\RemoveUselessReturnTagRector::class);
     $rectorConfig->rule(Rector\DeadCode\Rector\Property\RemoveUselessVarTagRector::class);
-    $rectorConfig->rule(Rector\EarlyReturn\Rector\If_\ChangeAndIfToEarlyReturnRector::class);
+    // $rectorConfig->rule(Rector\EarlyReturn\Rector\If_\ChangeAndIfToEarlyReturnRector::class);
     $rectorConfig->rule(Rector\EarlyReturn\Rector\Foreach_\ChangeNestedForeachIfsToEarlyContinueRector::class);
     $rectorConfig->rule(Rector\EarlyReturn\Rector\If_\ChangeNestedIfsToEarlyReturnRector::class);
     // $rectorConfig->rule(Rector\EarlyReturn\Rector\Return_\PreparedValueToEarlyReturnRector::class);
     $rectorConfig->rule(Rector\EarlyReturn\Rector\If_\RemoveAlwaysElseRector::class);
-    $rectorConfig->rule(Rector\EarlyReturn\Rector\StmtsAwareInterface\ReturnEarlyIfVariableRector::class);
+    // $rectorConfig->rule(Rector\EarlyReturn\Rector\StmtsAwareInterface\ReturnEarlyIfVariableRector::class);
 
     $rectorConfig->rule(Rector\Php56\Rector\FunctionLike\AddDefaultValueForUndefinedVariableRector::class);
     $rectorConfig->rule(Rector\Php70\Rector\Break_\BreakNotInLoopOrSwitchToReturnRector::class);
@@ -93,14 +98,15 @@ return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->rule(Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromReturnNewRector::class);
     $rectorConfig->rule(Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictBoolReturnExprRector::class);
     $rectorConfig->rule(Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictConstantReturnRector::class);
-    $rectorConfig->rule(Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictNativeCallRector::class);
-    $rectorConfig->rule(Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictTypedCallRector::class);
+    // $rectorConfig->rule(Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictNativeCallRector::class);
+    // $rectorConfig->rule(Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictTypedCallRector::class);
     $rectorConfig->rule(Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictTypedPropertyRector::class);
-    // not yet $rectorConfig->rule(AddGenericReturnTypeToRelationsRector::class);
+    // not yet . laravel 10 needed $rectorConfig->rule(AddGenericReturnTypeToRelationsRector::class);
     //$rectorConfig->rule(FactoryDefinitionRector::class); - broken for now
     $rectorConfig->rule(FactoryFuncCallToStaticCallRector::class);
-   // not yet $rectorConfig->rule(\RectorLaravel\Rector\ClassMethod\MigrateToSimplifiedAttributeRector::class);
-   // not yet $rectorConfig->rule(\RectorLaravel\Rector\Class_\AnonymousMigrationsRector::class);
+    // not yet $rectorConfig->rule(\RectorLaravel\Rector\ClassMethod\MigrateToSimplifiedAttributeRector::class);
+    // not yet $rectorConfig->rule(\RectorLaravel\Rector\Class_\AnonymousMigrationsRector::class);
     $rectorConfig->rule(RectorLaravel\Rector\PropertyFetch\OptionalToNullsafeOperatorRector::class);
     $rectorConfig->rule(RectorLaravel\Rector\Class_\UnifyModelDatesWithCastsRector::class);
+
 };

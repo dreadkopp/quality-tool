@@ -38,7 +38,7 @@ return (new Config())
             PhpCsFixerCustomFixers\Fixer\PhpdocTypesTrimFixer::name()                 => true,
             PhpCsFixerCustomFixers\Fixer\PromotedConstructorPropertyFixer::name()     => true,
             PhpCsFixerCustomFixers\Fixer\StringableInterfaceFixer::name()             => true,
-            'simplified_null_return'                                                  => true,
+            'simplified_null_return'                                                  => false,
             'no_unused_imports'                                                       => true,
             'fully_qualified_strict_types'                                            => true,
             'align_multiline_comment'                                                 => true,
